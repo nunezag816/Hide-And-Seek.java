@@ -19,9 +19,14 @@ public class TestFuzzyFinder {
   }
 
   @Test
-  void exampleFailingTest() {
-    ArrayList<Fuzzy> fuzzies = generator.randomized_rainbow_fuzzies();
+  void exampleFailingTestWithRandomizedFuzzies() {
+    ArrayList<Fuzzy> fuzzies = generator.randomizedRainbowFuzzies();
     assertEquals("purple", fuzzies.getFirst().color);
   }
 
+  @Test
+  void exampleFailingTestWithSortedFuzzies() {
+    ArrayList<Fuzzy> fuzzies = generator.sortedRainbowFuzzies();
+    assertEquals("purple", fuzzies.getFirst().color);
+  }
 }
