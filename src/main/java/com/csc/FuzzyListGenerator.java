@@ -20,7 +20,6 @@ public class FuzzyListGenerator {
     fuzzies.add(new Fuzzy("gold"));
 
     Collections.shuffle(fuzzies);
-    System.out.println(fuzzies);
     return fuzzies;
   };
 }
