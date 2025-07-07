@@ -1,3 +1,4 @@
+package org.example;
 
 public class FuzzyListGenerator1 {
     public static void main(String[] args) {
