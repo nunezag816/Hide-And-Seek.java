@@ -1,3 +1,5 @@
+package org.example;
+
 public class FuzzyFinder {
 
     public int linearSearch(List<Fuzzy> fuzzies) {
