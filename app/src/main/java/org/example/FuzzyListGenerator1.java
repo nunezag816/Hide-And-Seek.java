@@ -1,16 +1,51 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
 public class FuzzyListGenerator1 {
-    public static void main(String[] args) {
-        FuzzyListGenerator generator = new FuzzyListGenerator();
-        FuzzyFinder finder = new FuzzyFinder();
 
-        ArrayList<Fuzzy> sortedFuzzies = generator.sortedRainbowFuzzies();
-        ArrayList<Fuzzy> randomFuzzies = generator.randomizedRainbowFuzzies();
+    private int iterations;
+    private final String[] colors = { "red", "orange", "yellow", "green", "blue", "indigo", "violet" };
+    private final Random rand = new Random();
 
-        System.out.println("Linear Search on Sorted: Index = " + finder.linearSearch(sortedFuzzies));
-        System.out.println("Binary Search on Sorted: Index = " + finder.binarySearch(sortedFuzzies));
-        System.out.println("Linear Search on Random: Index = " + finder.linearSearch(randomFuzzies));
-        System.out.println("Binary Search on Random: Index = " + finder.binarySearch(randomFuzzies));
+    public FuzzyListGenerator() {
+        this.iterations = 7000;
+    }
+
+    public FuzzyListGenerator(int iterations) {
+        this.iterations = iterations;
+    }
+
+    public ArrayList<Feeling> sortedRainbowFuzzies() {
+        ArrayList<Feeling> list = new ArrayList<>();
+
+        for (int i = 0; i < iterations; i++) {
+            String color = colors[i % colors.length];
+            list.add(new Fuzzy(color));
+        }
+
+        list.add(new Fuzzy("gold"));
+
+        list.add(new Prickly());
+
+        return list;
+    }
+
+    public ArrayList<Feeling> randomizedRainbowFuzzies() {
+        ArrayList<Feeling> list = new ArrayList<>();
+
+        for (int i = 0; i < iterations; i++) {
+            String color = colors[i % colors.length];
+            list.add(new Fuzzy(color));
+        }
+
+        list.add(new Fuzzy("gold"));
+        list.add(new Prickly());
+
+        Collections.shuffle(list, rand);
+
+        return list;
     }
 }
