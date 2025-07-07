@@ -1,3 +1,5 @@
+package org.example;
+
 public class Fuzzy1 implements Feeling {
     public String color;
 
